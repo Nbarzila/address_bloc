@@ -14,26 +14,5 @@ def to_s
     end
 end
 
-class AddressBook
-    attr_accessor :entries
-    
-    
-    def initialize(entries)
-       
-       @entries = []
-       
-    end
-    
-    def add_entry(name, phone_number, email)
-        @entries.each do |entry|
-    
-            if name < entry.name
-                break
-            end
-            index += 1
-            end
-        
-        @entries.insert(index, Entry.new(name, phone, email))
-    end
-end
+
 
