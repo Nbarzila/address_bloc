@@ -30,9 +30,9 @@ class AddressBook
     @entries.insert(index, Entry.new(name, phone, email))
   end
 
-  def remove_entry(entry)
+  def remove_entry(full_entry)
     
-    @entries.delete(entry) 
+    @entries.delete(full_entry) 
 
   end
 
@@ -84,6 +84,7 @@ end
      return nil
    end
   end
+
    def iterative_search(name) 
     index = 0
   while index < entries.length

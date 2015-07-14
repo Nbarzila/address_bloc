@@ -14,8 +14,8 @@
     puts "2 - Create an entry"
     puts "3 - Search for an entry"
     puts "4 - Import entries from a CSV"
-    puts "5 - View Entry Number n"
-    puts "6 - Exit"
+    puts "6 - View Entry Number n"
+    puts "5 - Exit"
     print "Enter your selection: "
     puts "7 - Demolish"
  
@@ -43,7 +43,12 @@
        read_csv
        main_menu
 
-     when 5
+    when 5
+      puts "Good-bye!"
+
+      exit(0)
+
+     when 6
        puts "What is the entry number?"
        system "clear"
        view_entry_number 
@@ -54,11 +59,7 @@
       puts "Please enter a vaild entry number?"
       main_menu
       
-     when 6
-      puts "Good-bye!"
-
-      exit(0)
-
+     
     when 7
       system "clear"
       puts "Everything is now deleted"
@@ -74,10 +75,18 @@
  
 
    def view_all_entries
-   end
+
+      @address_book.entries.each do |entry|
+      system "clear"
+      puts entry.to_s
+
+      entry_submenu(entry)
+      end  
+      system "clear"
+      puts "End of entries"
+      end
+  end
  
-   def create_entry
-   end
  
    def search_entries
       print "Search by name: "
@@ -93,21 +102,19 @@
    end
   end 
  
-   def read_csv
-   end
- end
 
-  def create_entry
+   def create_entry
 
-     system "clear"
-     puts "New AddressBloc Entry"
 
-     print "Name: "
-     name = gets.chomp
-     print "Phone number: "
-     phone = gets.chomp
-     print "Email: "
-     email = gets.chomp
+      system "clear"
+      puts "New AddressBloc Entry"
+
+      print "Name: "
+      name = gets.chomp
+      print "Phone number: "
+      phone = gets.chomp
+      print "Email: "
+      email = gets.chomp
  
 
      @address_book.add_entry(name, phone, email)
@@ -116,18 +123,7 @@
      puts "New entry created"
   end
 
-  def view_all_entries
 
-     @address_book.entries.each do |entry|
-     system "clear"
-     puts entry.to_s
-
-     entry_submenu(entry)
-  end
- 
-     system "clear"
-     puts "End of entries"
-   end
 
   def entry_submenu(entry)
 
