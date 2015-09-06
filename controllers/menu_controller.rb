@@ -192,6 +192,10 @@ def edit_entry(entry)
   puts entry
 end
 
+def demolish_all_entries
+  @address_book.entries = []
+end
+
 def search_submenu(entry)
 
   puts "\nd - delete entry"
