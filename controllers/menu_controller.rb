@@ -42,15 +42,15 @@ class MenuController
       main_menu
 
     when 5
-      puts "Good-bye!"
-
-      exit(0)
-
-    when 6
       puts "What is the entry number?"
       system "clear"
       view_entry_number
       main_menu
+
+    when 6
+      puts "Good-bye!"
+
+      exit(0)
 
     when 7
       system "clear"
@@ -79,6 +79,15 @@ class MenuController
   end
 end
 
+ def  view_entry_number
+
+   @address_book.entries do |entry|
+     print " Search by number"
+     match =@address_book.index(number)
+     system "clear"
+     puts entry.to_s
+ end
+end
 
 def search_entries
   print "Search by name: "
